@@ -1,4 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
+
+
+const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   container: {
@@ -7,12 +11,17 @@ export default StyleSheet.create({
     paddingHorizontal: 10
   },
   SafeAreaView1: { backgroundColor: '#FFF', flex: 0 },
-  SafeAreaView2: { flex: 1, backgroundColor: '#FFF' },
+  SafeAreaView2: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#FFF'
+  },
   outerWrapper: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFF'
+    // width:deviceWidth
+    // justifyContent: 'center',
+    // backgroundColor: 'red'
   },
   buttonStyle: {
     backgroundColor: '#EEE',
@@ -22,5 +31,29 @@ export default StyleSheet.create({
     borderColor: '#F0F0F0',
     borderRadius: 10
   },
-  text: { fontSize: 18, color: '#808080', fontWeight: 'bold' }
+  text: { fontSize: 18, color: 'black', fontWeight: 'bold' },
+  table: {
+    flex: 1,
+    borderColor: 'black',
+    borderWidth: 2,
+    width: deviceWidth
+
+  },
+  tableTitles: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 8,
+    paddingBottom: 5,
+    fontSize: 20,
+    borderBottomWidth: 2
+  },
+  filter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10
+  },
+  picker: {
+    height: 50,
+    width: 150
+  }
 })
