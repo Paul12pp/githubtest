@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native'
+import { colors } from '../../utils/theme';
 
 
 const deviceWidth = Dimensions.get('window').width;
@@ -10,31 +11,25 @@ export default StyleSheet.create({
     paddingTop: 10,
     paddingHorizontal: 10
   },
-  SafeAreaView1: { backgroundColor: '#FFF', flex: 0 },
+  mainTitle:{ 
+    textAlign: 'center', 
+    fontSize:15, 
+    fontWeight:'bold', 
+    width:deviceWidth
+  },
   SafeAreaView2: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#FFF'
+    backgroundColor: colors.light
   },
   outerWrapper: {
     flex: 1,
     alignItems: 'center',
-    // width:deviceWidth
-    // justifyContent: 'center',
-    // backgroundColor: 'red'
   },
-  buttonStyle: {
-    backgroundColor: '#EEE',
-    paddingHorizontal: 40,
-    paddingVertical: 30,
-    borderWidth: 0.5,
-    borderColor: '#F0F0F0',
-    borderRadius: 10
-  },
-  text: { fontSize: 18, color: 'black', fontWeight: 'bold' },
+  text: { fontSize: 18, color: colors.dark, fontWeight: 'bold' },
   table: {
     flex: 1,
-    borderColor: 'black',
+    borderColor: colors.dark,
     borderWidth: 2,
     width: deviceWidth
 
@@ -44,8 +39,12 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 8,
     paddingBottom: 5,
-    fontSize: 20,
-    borderBottomWidth: 2
+    backgroundColor:colors.lightGray,
+    borderBottomWidth: 2,
+  },
+  tableHead:{
+    fontWeight:'bold',
+    fontSize:14
   },
   filter: {
     flexDirection: 'row',

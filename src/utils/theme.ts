@@ -4,13 +4,21 @@ export enum ThemeType {
   }
   
   export type Colors = {
+    primary:string;
+    secondary:string;
     success: string;
+    dark:string;
+    light:string
     darkGray: string;
     mediumGray: string;
     lightGray: string;
   };
   
   export const colors: Colors = {
+    primary:"",
+    secondary:"",
+    dark:"#0000",
+    light:"#FFFF",
     success: '#00BA90',
     darkGray: '#00000070',
     mediumGray: '#00000030',

@@ -7,25 +7,23 @@ import styles from './Item.style'
 
 type Props = {
     item: any;
-    isLoading:boolean;
+    isLoading: boolean;
 }
 
 const Item = (props: Props) => {
     const dispatch = useDispatch()
-    const onLoadEnd=()=>{
+    const onLoadEnd = () => {
         dispatch(fetchImageSuccess());
         console.log('end')
     }
     return (
-        <TouchableOpacity>
-            <View style={styles.tableBody}>
-                {/* <Text>{item.id}</Text> */}
-                <Image style={{width:80, height:80}} source={{ uri: props.item.avatar_url }} resizeMode="contain"
-                    onLoadEnd={onLoadEnd}
-                />
-                <Text>{props.item.login}</Text>
-            </View>
-        </TouchableOpacity>
+        <View style={styles.tableBody}>
+            {/* <Text>{item.id}</Text> */}
+            <Image style={styles.avatar} source={{ uri: props.item.avatar_url }} resizeMode="contain"
+                onLoadEnd={onLoadEnd}
+            />
+            <Text>{props.item.login}</Text>
+        </View>
     )
 }
 

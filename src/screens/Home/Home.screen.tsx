@@ -17,6 +17,7 @@ import { RootStackNavigationProps } from 'src/navigation/navigation'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import Item from '../../components/Item';
 import Sorter from '../../utils/Sorter';
+import { CommonActions } from '@react-navigation/native';
 
 interface Props {
   navigation: RootStackNavigationProps<'Home'>;
@@ -25,7 +26,7 @@ interface Props {
   plus: boolean;
   momentun: boolean;
   per_page: number;
-  sort:string;
+  sort: string;
 }
 const Home = (props: Props) => {
   const dispatch = useDispatch()
@@ -38,7 +39,7 @@ const Home = (props: Props) => {
     dispatch(changePerpage(value))
   }
   const sort = () => {
-    dispatch(changeSort(props.sort=='sort-up'?'sort-down':'sort-up'))
+    dispatch(changeSort(props.sort == 'sort-up' ? 'sort-down' : 'sort-up'))
   }
   useEffect(() => {
     dispatch(fetchDataUser({ per_page: props.per_page }));
@@ -46,7 +47,7 @@ const Home = (props: Props) => {
     }
   }, [])
   useEffect(() => {
-    console.log('efect',props.sort)
+    console.log('efect', props.sort)
     // console.log('efect',props.user[0])
     // props.user.forEach((value:any,index)=>{
     //  console.log(index,value)
@@ -62,7 +63,7 @@ const Home = (props: Props) => {
         }
         {!props.isLoading &&
           <View style={styles.table}>
-            <Text style={{ alignSelf: 'center' }}>Lista de usuarios</Text>
+            <Text style={styles.mainTitle}>Lista de usuarios</Text>
             <View style={styles.filter}>
               <Picker
                 style={styles.picker}
@@ -75,8 +76,8 @@ const Home = (props: Props) => {
               <Icon name={props.sort} size={24} onPress={sort} />
             </View>
             <View style={styles.tableTitles}>
-              <Text>Foto</Text>
-              <Text>Usuario</Text>
+              <Text style={styles.tableHead}>Foto</Text>
+              <Text style={styles.tableHead}>Usuario</Text>
             </View>
             {/* <Text>{JSON.stringify(props.user)}</Text> */}
             <FlatList
@@ -99,7 +100,14 @@ const Home = (props: Props) => {
                 }
               }}
               renderItem={({ item, index }) =>
-                <Item item={item} />
+                <TouchableOpacity onPress={()=>props.navigation.dispatch(CommonActions.reset({
+                  index: 0,
+                  routes: [
+                    { name: 'Profile',params:{username:item.login} }, 
+                  ],
+                }))}>
+                  <Item item={item} />
+                </TouchableOpacity>
               }
               keyExtractor={(item, index) => index.toString()}
             />

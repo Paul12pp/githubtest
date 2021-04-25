@@ -10,5 +10,11 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 8,
         borderBottomWidth: 2
+    },
+    avatar: {
+        width: 80,
+        height: 80,
+        borderRadius:100,
+        // padding:
     }
 })

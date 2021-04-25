@@ -10,7 +10,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 export type RootStackParamList = {
   default: undefined;
   Home: undefined;
-  Profile: undefined;
+  Profile: {username:string};
   //Temp: {param: string};
 };
 
